@@ -8,4 +8,13 @@ import com.example.fallennymous.prekjutelulas.Model.User;
 
 public class Common {
     public static User currenUser;
+
+    public static String convertCodeToStatus(String status) {
+        if (status.equals("0"))
+            return "Ditempat";
+        else if (status.equals("1"))
+            return "Dalam Perjalanan";
+        else
+            return "Dikirim";
+    }
 }

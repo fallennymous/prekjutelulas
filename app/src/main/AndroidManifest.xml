@@ -28,9 +28,13 @@
         <activity
             android:name=".FoodDetail"
             android:theme="@style/AppTheme.NoActionBar" />
-        <activity android:name=".Cart"/>
-            <activity android:name=".OrderStatus">
-        </activity>
+        <activity android:name=".Cart" />
+        <activity android:name=".OrderStatus"></activity>
+
+        <service
+            android:name=".Service.ListenOrder"
+            android:enabled="true"
+            android:exported="true"></service>
     </application>
 
 </manifest>

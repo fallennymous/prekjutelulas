@@ -49,7 +49,10 @@ public class OrderStatus extends AppCompatActivity {
         recyclerView.setLayoutManager(layoutManager);
 
         // loading order status
-        loadOrders(Common.currenUser.getPhone());
+        if(getIntent() == null)
+            loadOrders(Common.currenUser.getPhone());
+        else
+            loadOrders(getIntent().getStringExtra("userphone"));
     }
 
     /**
@@ -69,7 +72,7 @@ public class OrderStatus extends AppCompatActivity {
                 // get key from DatabaseReference
                 viewHolder.txtOrderId.setText(adapter.getRef(position).getKey());
                 // set text for order status, address and phone
-                viewHolder.txtOrderStatus.setText(convertCodeToStatus(model.getStatus()));
+                viewHolder.txtOrderStatus.setText(Common.convertCodeToStatus(model.getStatus()));
                 viewHolder.txtOrAddress.setText(model.getAddress());
                 viewHolder.txtOrderPhone.setText(model.getPhone());
                 viewHolder.setItemClickListener(new ItemClickListener() {
@@ -85,12 +88,4 @@ public class OrderStatus extends AppCompatActivity {
     }
 
 
-    private String convertCodeToStatus(String status) {
-        if (status.equals("0"))
-            return "Ditempat";
-        else if (status.equals("1"))
-            return "Dalam Perjalanan";
-        else
-            return "Dikirim";
-    }
 }
