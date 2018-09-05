@@ -11,10 +11,10 @@ public class Common {
 
     public static String convertCodeToStatus(String status) {
         if (status.equals("0"))
-            return "Ditempat";
+            return "Pesanan diproses";
         else if (status.equals("1"))
-            return "Dalam Perjalanan";
+            return "Pesanan dalam perjalanan ";
         else
-            return "Dikirim";
+            return "pesanan diterima";
     }
 }
